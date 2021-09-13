@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+.quiz-container {
+    background-color: aquamarine;
+    font-size: 2rem;
+}
+ul li {
+    list-style-type: none;
+    padding: 1rem 0;
+}
+button {
+  
+    width: 33%;
+    font-size: 1rem;
+    background-color: rgb(104, 104, 192);
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+button:hover {
+    background-color: rgb(141, 141, 194);
+}
