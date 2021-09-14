@@ -23,3 +23,8 @@ button {
 button:hover {
     background-color: rgb(141, 141, 194);
 }
+
+#timer {
+    color: blue;
+    font-size: x-large;
+}
