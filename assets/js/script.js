@@ -53,6 +53,12 @@ var timeleft = 40;
 var currentselectedanswer = "a";
 
 
+function GameOver() {
+    // Switched to Highscore screen
+
+    window.location.href = "https://adrian-szonyi.github.io/JavascriptQuiz/develop/Highscores.html";
+ }
+
 Startbtn.addEventListener("click", Countdown);
 
 function Countdown() {
@@ -67,7 +73,7 @@ function Countdown() {
     // }
  else {
       timer.textContent = "0";
-      clearInterval(timeinterval);
+      GameOver();
     }
   }
  timeinterval = setInterval(setCountdown, 1000);
@@ -107,10 +113,9 @@ function checkAnswer(userAnswer) {
     }
     else {
         timeleft = timeleft - 10;
-        if (timeleft >= 0 ) {
+        if (timeleft > 0 ) {
             timer.textContent = timeleft;
         }
-      console.log('wrong answer');
     }
      currentselectedanswer = "";
   }
@@ -158,15 +163,9 @@ console.log(currentselectedanswer);
 
     StartQuiz();
     } else {
-        GameOver();
+        window.localStorage.setItem("key", scorecard);
     }
 });
-
-   function GameOver() {
-       // hide the game UI
-
-       window.location.href = "https://adrian-szonyi.github.io/JavascriptQuiz/develop/Highscores.html";
-    }
 
        //show the high score UI
        //display the user scores
