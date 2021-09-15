@@ -52,6 +52,7 @@ var score = 0;
 var timeleft = 40;
 var currentselectedanswer = "a";
 
+
 Startbtn.addEventListener("click", Countdown);
 
 function Countdown() {
@@ -111,7 +112,7 @@ function checkAnswer(userAnswer) {
         }
       console.log('wrong answer');
     }
-
+     currentselectedanswer = "";
   }
 
 // function getSelected() {
@@ -145,7 +146,7 @@ console.log(currentselectedanswer);
     //      timeleft = timeleft - 10;
     //      timer.textContent = timeleft;
     
-     if(answers.clicked === false) {
+     if(currentselectedanswer === "") {
          return;
      }
     
@@ -157,12 +158,16 @@ console.log(currentselectedanswer);
 
     StartQuiz();
     } else {
-        alert("Well done! You have finished the quiz");
+        GameOver();
     }
-    
+});
 
    function GameOver() {
        // hide the game UI
+
+       window.location.href = "https://adrian-szonyi.github.io/JavascriptQuiz/develop/Highscores.html";
+    }
+
        //show the high score UI
        //display the user scores
        //input field for initials
@@ -171,6 +176,3 @@ console.log(currentselectedanswer);
        //keep a list of scores in an array in local storage, each item will have the user initials and their score
        //pend element in javascript, create new divs for each users score and their initials
 
-   } 
-
-});
