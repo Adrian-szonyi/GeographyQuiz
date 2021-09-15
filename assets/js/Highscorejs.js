@@ -1,7 +1,11 @@
 var SubmitScore = document.getElementById("submitscore-btn");
 var inputString = document.getElementById("inputString");
 var stores = Array();
+var play = document.getElementById("Play");
+var highscoreslist = document.getElementById("highscoreslist")
+var highscore = JSON.parse(localStorage.getItem("key")) || [];
 
+console.log(highscore);
 
 SubmitScore.addEventListener("click", () => {
     var stringToSave = inputString.value;
@@ -13,18 +17,18 @@ SubmitScore.addEventListener("click", () => {
         inputString.value = "";
         window.localStorage.setItem("database", stores.join(" "));
         document.getElementById('write').innerHTML = "Thank You";
-    };
+    // };
+    // var initials = JSON.parse(localStorage.getItem("stringToSave")) || [];
+    highscoreslist.textContent = highscore.map(score => {
+    return `<li class="high-score">${database} - ${key}</li>`;
+  })
+  .join("");
 
 
 });
-// read the string
-function readStatus() {
-//print the value of the local storage "database" key
-if (window.localStorage.getItem("database") == null) {
-    document.getElementById('write').innerHTML = "nothing stored.";
-} else {
-    document.getElementById('write').innerHTML = window.localStorage.getItem("database") + "<br>quiz:" + window.localStorage.getItem("results") ;
-}
-}
 
+
+play.addEventListener("click", () => {
+    window.location.href = "./StartPage.html";
+});
 
