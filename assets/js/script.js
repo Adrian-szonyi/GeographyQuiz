@@ -65,7 +65,7 @@ function Countdown() {
     //     alert("You've run out of time. Refresh and play again")
     // }
  else {
-      timer.textContent = "";
+      timer.textContent = "0";
       clearInterval(timeinterval);
     }
   }
@@ -144,7 +144,12 @@ console.log(currentselectedanswer);
     //   else {
     //      timeleft = timeleft - 10;
     //      timer.textContent = timeleft;
-    //   }
+    
+     if(answers.clicked === false) {
+         return;
+     }
+    
+
     checkAnswer(currentselectedanswer);
 
     CurrentQuestion++;
@@ -155,5 +160,17 @@ console.log(currentselectedanswer);
         alert("Well done! You have finished the quiz");
     }
     
+
+   function GameOver() {
+       // hide the game UI
+       //show the high score UI
+       //display the user scores
+       //input field for initials
+       //onclick for input initials submit
+       //when submitted insert/set local storage
+       //keep a list of scores in an array in local storage, each item will have the user initials and their score
+       //pend element in javascript, create new divs for each users score and their initials
+
+   } 
 
 });
