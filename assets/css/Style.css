@@ -12,7 +12,6 @@ ul li {
     padding: 1rem 0;
 }
 button {
-  
     width: 33%;
     font-size: 1rem;
     background-color: rgb(104, 104, 192);
@@ -27,4 +26,9 @@ button:hover {
 #timer {
     color: blue;
     font-size: x-large;
+}
+
+#scorecard {
+    color: rgb(255, 0, 119);
+    font-size: large;
 }

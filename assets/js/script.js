@@ -36,6 +36,7 @@ var Quizquestions = [
     },
 ];
 
+
 var aanswer = document.getElementById("a1");
 var banswer = document.getElementById("b1");
 var canswer = document.getElementById("c1");
@@ -46,8 +47,10 @@ var submitbutton = document.getElementById("submit-btn");
 var timer = document.getElementById("timer");
 var answers = document.querySelectorAll(".answer1");
 var timeinterval;
+var scorecard = document.getElementById("scorecard");
 var score = 0;
 var timeleft = 40;
+var currentselectedanswer = "a";
 
 Startbtn.addEventListener("click", Countdown);
 
@@ -57,7 +60,11 @@ function Countdown() {
     if (timeleft > 0) {
       timer.textContent = timeleft;
       timeleft--;
-    } else {
+    }
+    // if else(timeleft = 0) {
+    //     alert("You've run out of time. Refresh and play again")
+    // }
+ else {
       timer.textContent = "";
       clearInterval(timeinterval);
     }
@@ -89,27 +96,56 @@ function removeselected() {
     });
 }
 
-function getSelected() {
-    var answer3 = undefined;
-    answers.forEach((answers) => {
-        if(answers.checked) {
-            return answers.id;
+
+function checkAnswer(userAnswer) {
+
+    // if answer is correct
+    if(userAnswer === Quizquestions[CurrentQuestion].correctanswer){
+        console.log('correct answer');
+        scorecard.textContent = ++ score;
+    }
+    else {
+        timeleft = timeleft - 10;
+        if (timeleft >= 0 ) {
+            timer.textContent = timeleft;
         }
-        });
-        return answer3;
-}
+      console.log('wrong answer');
+    }
+
+  }
+
+// function getSelected() {
+//     var answer3 = undefined;
+//     answers.forEach((answers) => {
+//         if(answers.checked) {
+//             return answers.id;
+//         }
+//         });
+//         return answer3;
+// }
+
+answers.forEach( (answerObject) => {
+    
+    answerObject.addEventListener("click", (event) => {
+currentselectedanswer = event.target.id;
+
+    });
+    });
 
 
-submitbutton.addEventListener("click", () => {
 
-    if(answers) {
-      if(answers === Quizquestions[CurrentQuestion].correctanswer) {
-          score++;
-      }
-      else {
-         timeleft = timeleft - 10;
-         timer.textContent = timeleft;
-      }
+
+submitbutton.addEventListener("click", (eventclear) => {
+console.log(currentselectedanswer);
+    // if(answers) {
+    //   if(answers === Quizquestions[CurrentQuestion].correctanswer) {
+    //       score++;
+    //   }
+    //   else {
+    //      timeleft = timeleft - 10;
+    //      timer.textContent = timeleft;
+    //   }
+    checkAnswer(currentselectedanswer);
 
     CurrentQuestion++;
     if(CurrentQuestion < Quizquestions.length) {
@@ -118,6 +154,6 @@ submitbutton.addEventListener("click", () => {
     } else {
         alert("Well done! You have finished the quiz");
     }
-    }
+    
 
 });
