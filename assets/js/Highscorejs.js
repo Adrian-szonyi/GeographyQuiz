@@ -15,5 +15,16 @@ SubmitScore.addEventListener("click", () => {
         document.getElementById('write').innerHTML = "Thank You";
     };
 
+
 });
+// read the string
+function readStatus() {
+//print the value of the local storage "database" key
+if (window.localStorage.getItem("database") == null) {
+    document.getElementById('write').innerHTML = "nothing stored.";
+} else {
+    document.getElementById('write').innerHTML = window.localStorage.getItem("database") + "<br>quiz:" + window.localStorage.getItem("results") ;
+}
+}
+
 

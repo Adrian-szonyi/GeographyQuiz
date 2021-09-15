@@ -42,7 +42,7 @@ var banswer = document.getElementById("b1");
 var canswer = document.getElementById("c1");
 var danswer = document.getElementById("d1");
 var questionEl = document.getElementById("question");
-var Startbtn = document.getElementById("start-quiz");
+// var Startbtn = document.getElementById("start-quiz");
 var submitbutton = document.getElementById("submit-btn");
 var timer = document.getElementById("timer");
 var answers = document.querySelectorAll(".answer1");
@@ -56,10 +56,11 @@ var currentselectedanswer = "a";
 function GameOver() {
     // Switched to Highscore screen
 
-    window.location.href = "https://adrian-szonyi.github.io/JavascriptQuiz/develop/Highscores.html";
+    window.location.href = "./Highscores.html";
  }
 
-Startbtn.addEventListener("click", Countdown);
+// Startbtn.addEventListener("click", Countdown);
+Countdown();
 
 function Countdown() {
   clearInterval(timeinterval);
@@ -109,7 +110,8 @@ function checkAnswer(userAnswer) {
     // if answer is correct
     if(userAnswer === Quizquestions[CurrentQuestion].correctanswer){
         console.log('correct answer');
-        scorecard.textContent = ++ score;
+        score++;
+        scorecard.textContent = score;
     }
     else {
         timeleft = timeleft - 10;
@@ -163,7 +165,8 @@ console.log(currentselectedanswer);
 
     StartQuiz();
     } else {
-        window.localStorage.setItem("key", scorecard);
+        window.localStorage.setItem("key", score);
+        GameOver()
     }
 });
 
