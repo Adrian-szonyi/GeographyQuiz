@@ -3,9 +3,9 @@ var inputString = document.getElementById("inputString");
 var stores = Array();
 var play = document.getElementById("Play");
 var highscoreslist = document.getElementById("highscoreslist")
-var highscore = JSON.parse(localStorage.getItem("key")) || [];
 
-console.log(highscore);
+
+// console.log(highscore);
 
 SubmitScore.addEventListener("click", () => {
     var stringToSave = inputString.value;
@@ -15,20 +15,25 @@ SubmitScore.addEventListener("click", () => {
     } else {
         stores.push(stringToSave);
         inputString.value = "";
-        window.localStorage.setItem("database", stores.join(" "));
+        window.localStorage.setItem("Initials", JSON.stringify(stringToSave));
         document.getElementById('write').innerHTML = "Thank You";
-    // };
-    // var initials = JSON.parse(localStorage.getItem("stringToSave")) || [];
-    highscoreslist.textContent = highscore.map(score => {
-    return `<li class="high-score">${database} - ${key}</li>`;
-  })
-  .join("");
-
+    };
+//     var Initials = JSON.parse(localStorage.getItem("stringToSave")) || [];
+//     highscoreslist.textContent = highscore.map(score => {
+//     return `<li class="high-score">${Initials} - ${key}</li>`;
+//   });
+// .join("");
+// const allKeys = Object.keys(localstorage);
+// return  allKeys.map(key => {localstorage.getItem(key)} );
 
 });
-
+function Printhighscorelist () {
+var highscore = JSON.parse(localStorage.getItem("Initials")) || [];
+const li = document.createElement("li");
+ li.textContent = highscore;
+ li.textContent = stringToSave;
+}
 
 play.addEventListener("click", () => {
     window.location.href = "./StartPage.html";
 });
-

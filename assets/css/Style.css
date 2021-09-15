@@ -2,6 +2,7 @@ body {
     text-align: center;
     justify-content: center;
     background-color: antiquewhite;
+    margin-top: 150px;
 }
 .quiz-container {
     background-color: rgb(255, 225, 127);
