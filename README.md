@@ -14,10 +14,10 @@ I have created a simple Javascript Quiz to test the basic knowledge of Javascrip
 ## Installation
 
 Here is the link to view the Javascript website page:
-[Link to Password Generator](https://adrian-szonyi.github.io/JavascriptQuiz/develop/StartPage.html)
+[Link to Javascript Quiz](https://adrian-szonyi.github.io/JavascriptQuiz/develop/StartPage.html)
 
 Start by clicking the Start Quiz button which will then take you to the quiz page. When completed the Highscores page will load.
 
 ## Website Image
 
-![Image of the Oassword Generator website](assets\images\JavascriptQuizImage.png)
+![Image of the Quiz website](https://github.com/Adrian-szonyi/JavascriptQuiz/blob/main/assets/images/JavascriptQuizImage.png)
