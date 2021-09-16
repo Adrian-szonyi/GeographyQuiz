@@ -165,7 +165,7 @@ console.log(currentselectedanswer);
 
     StartQuiz();
     } else {
-        window.localStorage.setItem("key", JSON.stringify(score));
+        window.localStorage.setItem("key", score);
         GameOver()
     }
 });
